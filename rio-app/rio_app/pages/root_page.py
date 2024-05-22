@@ -14,5 +14,7 @@ class RootPage(rio.Component):
             rio.Column(
                 comps.Navbar(),
                 rio.PageView(),
+                proportions=(0.7, 9.3),
             ),
+            proportions=(1.5,8.5)
         )
