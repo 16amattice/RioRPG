@@ -19,18 +19,29 @@ class Navbar(rio.Component):
         def create_link(label: str, icon: str, page_url: str) -> rio.Component:
             return rio.Link(
                 rio.Button(
-                    label,
-                    icon=icon,
+                    rio.Row(
+                        rio.Icon(
+                            icon,
+                            align_x=0,
+                        ),
+                        rio.Text(
+                            label,
+                            style=rio.TextStyle(
+                                fill=rio.Color.BLACK,
+                            ),
+                            align_x=0,
+                        ),
+                        align_x=0,
+                    ),
                     style=(
                         "major"
                         if active_page_url_segment == page_url
                         else "plain"
                     ),
-                    margin_left=0,
-                    align_x=0,
-                    align_y=0,
+                    align_x=0
                 ),
                 page_url,
+                align_x=0
             )
 
         return rio.Row(
@@ -55,6 +66,8 @@ class Navbar(rio.Component):
                     create_link("Inventory", "material/backpack", "/news-page"),
                     create_link("Battle", "material/swords", "/news-page"),
                     create_link("Quests", "material/question-mark", "/news-page"),
+                    rio.Separator(
+                        width="grow"),
                     rio.Text(
                         "CHARACTER",
                         style=rio.TextStyle(
@@ -67,7 +80,6 @@ class Navbar(rio.Component):
                     create_link("Tasks", "material/exclamation", "/news-page"),
                     create_link("Collections", "material/collections-bookmark", "/news-page"),
                     create_link("Guilds", "material/group", "/news-page"),
-                    align_x=0,
                     align_y=0,
                 ),
                 fill=self.session.theme.neutral_color,
