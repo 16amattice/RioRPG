@@ -16,11 +16,12 @@ from . import components as comps
 #
 # https://rio.dev/docs/api/theme
 theme = rio.Theme.from_colors(
-    primary_color=rio.Color.from_hex("01dffdff"),
+    primary_color=rio.Color.from_hex("#111111"),
     secondary_color=rio.Color.from_hex("0083ffff"),
-    light=True,
+    background_color=rio.Color.from_hex("#171717"),
+    #font=rio.Color.WHITE,
+    light=False,
 )
-
 
 # Create the Rio app
 app = rio.App(
@@ -31,13 +32,11 @@ app = rio.App(
             page_url='',
             build=pages.HomePage,
         ),
-
         rio.Page(
             name="AboutPage",
             page_url='about-page',
             build=pages.AboutPage,
         ),
-
         rio.Page(
             name="NewsPage",
             page_url='news-page',
