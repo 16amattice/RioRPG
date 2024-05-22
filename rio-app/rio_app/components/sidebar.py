@@ -1,11 +1,12 @@
 from __future__ import annotations
 
 from dataclasses import KW_ONLY, field
-from typing import *
+from typing import *  # type: ignore
 
 import rio
 
 from .. import components as comps
+
 
 class Sidebar(rio.Component):
     @rio.event.on_page_change

@@ -11,6 +11,8 @@ class RootPage(rio.Component):
     def build(self) -> rio.Component:
         return rio.Row(
             comps.Sidebar(),
-            comps.Navbar(),
-            rio.PageView(),
+            rio.Column(
+                comps.Navbar(),
+                rio.PageView(),
+            ),
         )
