@@ -51,20 +51,28 @@ class PlayerCard(rio.Component):
                                 rio.Icon("material/currency-bitcoin"),
                                 rio.Column(
                                     rio.Text("Gold"),    
-                                    rio.Text("116,291"),    
+                                    rio.Text("116,291", style="dim",),
+                                    align_x=0    
                                 ),    
                             ),
-                            colorize_on_hover=True,    
+                            colorize_on_hover=True,
+                            margin_left=0.5,
+                            margin_top=0.1,
+                            height=4
                         ),
                         rio.Card(
                             content= rio.Row(
                                 rio.Icon("material/diamond"),
                                 rio.Column(
                                     rio.Text("Diamonds"),    
-                                    rio.Text("29"),    
+                                    rio.Text("29", style="dim",),
+                                    align_x=0    
                                 ),    
                             ),
-                            colorize_on_hover=True,        
+                            colorize_on_hover=True,   
+                            margin_left=0.5,
+                            margin_bottom=0.1,
+                            height=4     
                         ),
                     ),
                     rio.Column(
@@ -73,20 +81,26 @@ class PlayerCard(rio.Component):
                                 rio.Icon("material/account-balance"),
                                 rio.Column(
                                     rio.Text("Bank"),    
-                                    rio.Text("2,436,198"),    
+                                    rio.Text("2,436,198", style="dim",),    
+                                    align_x=0
                                 ),    
                             ),    
-                            colorize_on_hover=True,    
+                            colorize_on_hover=True,  
+                            margin_right=0.5,
+                            margin_top=0.1,  
                         ),
                         rio.Card(
                             content= rio.Row(
                                 rio.Icon("material/steps"),
                                 rio.Column(
                                     rio.Text("Total Steps"),    
-                                    rio.Text("4,141"),    
+                                    rio.Text("4,141", style="dim",),   
+                                    align_x=0 
                                 ),    
                             ),    
                             colorize_on_hover=True,    
+                            margin_right=0.5,
+                            margin_bottom=0.1,
                         ),
                     ),
                 ),
@@ -103,7 +117,9 @@ class PlayerCard(rio.Component):
                                     rio.Text("1,630 out of 1,630"),
                                 ),
                             ),
-                        ),   
+                        ),
+                        margin_top=0.5,
+                        margin_y=0.5   
                     ),
                     rio.Card(
                         content = rio.Row(
