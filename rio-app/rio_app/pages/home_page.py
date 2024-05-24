@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import KW_ONLY, field
-from typing import *  # type: ignore
+from typing import *
 
 import rio
 
@@ -56,4 +56,3 @@ class HomePage(rio.Component):
             align_x=0.5,
             align_y=0,
         )
-
