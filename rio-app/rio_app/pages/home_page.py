@@ -18,18 +18,31 @@ class HomePage(rio.Component):
             rio.Row(
                 comps.InformationCard(
                     "material/group",
-                    "Jane Doe",
-                    "CTO, Synergistic Solutions LLC",
+                    "374",
+                    "Players Online",
+                    "View Players",
+                    "/players"
                 ),
                 comps.InformationCard(
-                    "material/group",
-                    "Made Up Rick",
-                    "CEO, Imaginary Industries",
+                    "material/face",
+                    "7%",
+                    "Donation Goal",
+                    "Make a Donation",
+                    "/donation"
                 ),
                 comps.InformationCard(
-                    "material/group",
-                    "John Doe",
-                    "CEO, HyperTech Corp.",
+                    "material/check-circle",
+                    "0",
+                    "Tasks Completed",
+                    "View Tasks",
+                    "/tasks"
+                ),
+                comps.InformationCard(
+                    "material/diamond",
+                    "29",
+                    "Gems Remaining",
+                    "Go To Shop",
+                    ""
                 ),
                 spacing=0.5,
                 align_x=0.5,
