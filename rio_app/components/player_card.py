@@ -46,7 +46,7 @@ class PlayerCard(rio.Component):
                 
                 rio.Row(
                     rio.Column(
-                        rio.Card(
+                        rio.Rectangle(
                             content= rio.Row(
                                 rio.Icon("material/currency-bitcoin"),
                                 rio.Column(
@@ -60,7 +60,7 @@ class PlayerCard(rio.Component):
                             margin_top=0.1,
                             height=4
                         ),
-                        rio.Card(
+                        rio.Rectangle(
                             content= rio.Row(
                                 rio.Icon("material/diamond"),
                                 rio.Column(
@@ -76,7 +76,7 @@ class PlayerCard(rio.Component):
                         ),
                     ),
                     rio.Column(
-                        rio.Card(
+                        rio.Rectangle(
                             content= rio.Row(
                                 rio.Icon("material/account-balance"),
                                 rio.Column(
@@ -89,7 +89,7 @@ class PlayerCard(rio.Component):
                             margin_right=0.5,
                             margin_top=0.1,  
                         ),
-                        rio.Card(
+                        rio.Rectangle(
                             content= rio.Row(
                                 rio.Icon("material/steps"),
                                 rio.Column(
@@ -107,7 +107,7 @@ class PlayerCard(rio.Component):
                 
                 rio.Separator(),
                 rio.Column(
-                    rio.Card(
+                    rio.Rectangle(
                         content = rio.Row(
                             rio.Icon("material/group"),    
                             rio.Column(
@@ -121,7 +121,7 @@ class PlayerCard(rio.Component):
                         margin_top=0.5,
                         margin_y=0.5   
                     ),
-                    rio.Card(
+                    rio.Rectangle(
                         content = rio.Row(
                             rio.Icon("material/group"),    
                             rio.Column(
@@ -133,7 +133,7 @@ class PlayerCard(rio.Component):
                             ),
                         ),  
                     ),
-                    rio.Card(
+                    rio.Rectangle(
                         content = rio.Row(
                             rio.Icon("material/group"),    
                             rio.Column(
