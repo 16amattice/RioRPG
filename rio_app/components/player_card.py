@@ -31,14 +31,15 @@ class PlayerCard(rio.Component):
                 **kwargs
             )
 
-        def create_progress_rectangle(icon_name: str, title: str, value: str, **kwargs) -> rio.Rectangle:
+        def create_progress_rectangle(icon_name: str, title: str, value: str, color: Optional[rio.Color] = None, **kwargs) -> rio.Rectangle:
             return rio.Rectangle(
                 content=rio.Row(
                     rio.Icon(icon_name),
                     rio.Column(
                         rio.ProgressBar(
                             progress=1,
-                            width="grow"
+                            width="grow",
+                            color=color
                         ),
                         rio.Row(
                             rio.Text(title),
@@ -49,57 +50,84 @@ class PlayerCard(rio.Component):
                         margin_y=1,
                         width="grow",
                     ),
-                    rio.Spacer(),
-                    margin_left=1,
+                    margin_x=1,
                 ),
                 fill=self.session.theme.neutral_color,
                 hover_fill=rio.Color.from_hex("#080808"),
                 corner_radius=0.7,
                 height=4,
-                margin_left=0.5,
+                margin_x=0.5,
                 **kwargs
             )
 
         def create_button(icon_name: str, text: str, url: str = "", **kwargs) -> rio.Link:
-            return rio.Link(
-                rio.Button(
-                    rio.Row(
-                        rio.Icon(
-                            icon=icon_name,
+            return rio.Rectangle(
+                content=rio.Link(
+                    rio.Button(
+                        rio.Row(
+                            rio.Icon(
+                                icon=icon_name,
+                                align_x=0,
+                                height=1.7,
+                                width=1.7,
+                            ),
+                            rio.Text(
+                                text,
+                                align_x=0,
+                            ),
                             align_x=0,
-                            height=1.7,
-                            width=1.7,
                         ),
-                        rio.Text(
-                            text,
-                            align_x=0,
-                        ),
+                        style=("plain"),
                         align_x=0,
                     ),
-                    style=("plain"),
-                    align_x=0,
-                    **kwargs
+                    url,
+                    align_x=0
                 ),
-                url,
-                align_x=0
+                fill=self.session.theme.neutral_color,
+                hover_fill=rio.Color.from_hex("#080808"),
+                margin_x=0.5,
+                corner_radius=0.7,
+                height=3,
+                **kwargs
             )
 
         image_path = self.session.assets / 'player_icon.png'
-
-        image_fill = rio.ImageFill(
-            image=image_path,
-            fill_mode='fit'
-        )
-
+        bg_path = self.session.assets / 'bg.png'
         circle_size = 6
-
-        circle_with_image = rio.Rectangle(
-            width=0.5,
-            height=0.5,
-            corner_radius=circle_size / 2,
-            fill=image_fill,
+        
+        bg_rectangle = rio.Rectangle(
+            width=circle_size,
+            height=circle_size,
+            fill=rio.ImageFill(image=bg_path, fill_mode='stretch'),
+            corner_radius=circle_size,
             stroke_width=0.4,
             stroke_color=rio.Color.BLACK,
+        )
+
+        image_rectangle = rio.Rectangle(
+            width=circle_size,
+            height=circle_size,
+            fill=rio.ImageFill(image=image_path, fill_mode='fit'),
+            corner_radius=circle_size,
+            stroke_width=0.4,
+            stroke_color=rio.Color.BLACK,
+        )
+
+        circle_with_image = rio.Stack(
+            bg_rectangle,
+            image_rectangle,
+            width=circle_size,
+            height=circle_size,
+            margin_x=1,
+            align_x=0,
+            align_y=0
+        )
+        
+        gradient_fill = rio.LinearGradientFill(
+            (rio.Color.from_hex("#8A2BE2"), 0.0),
+            (rio.Color.from_hex("#FF1493"), 0.33),
+            (rio.Color.from_hex("#00EEFF"), 1.0),
+            angle_degrees=90.0
         )
 
         return rio.Card(
@@ -107,11 +135,21 @@ class PlayerCard(rio.Component):
                 rio.Row(
                     circle_with_image,
                     rio.Column(
-                        rio.Text("[CD] SlydeMW"),
-                        rio.Text("Level 311"),
-                        rio.Text("Progress Bar"),
-                        rio.Text("11,945 EXP remaining"),
+                        rio.Text(
+                            "[CD] SlydeMW",
+                            align_x=0,
+                            style=rio.TextStyle(
+                                fill=gradient_fill,  # Use the gradient fill
+                            ),
+                        ),
+                        rio.Text("Level 311", align_x=0,),
+                        rio.ProgressBar(1, width="grow", color=rio.Color.from_hex("#006400")),
+                        rio.Text("11,945 EXP remaining", align_x=0, style="dim"),
+                        width="grow",
+                        margin_y=0.5
                     ),
+                    rio.Spacer(),
+                    margin_y=1,
                 ),
                 rio.Separator(),
                 rio.Row(
@@ -126,16 +164,16 @@ class PlayerCard(rio.Component):
                 ),
                 rio.Separator(),
                 rio.Column(
-                    create_progress_rectangle("material/ecg-heart", "Health", "1,630 out of 1,630"),
-                    create_progress_rectangle("material/bolt", "Energy", "7 out of 7"),
-                    create_progress_rectangle("material/indeterminate-question-box", "Quest Points", "5 out of 5"),
+                    create_progress_rectangle("material/ecg-heart", "Health", "1,630 out of 1,630", color=rio.Color.RED),
+                    create_progress_rectangle("material/bolt", "Energy", "7 out of 7", color=rio.Color.ORANGE),
+                    create_progress_rectangle("material/indeterminate-question-box", "Quest Points", "5 out of 5", color=rio.Color.from_hex("#006400")),
                 ),
                 rio.Separator(),
-                create_button("material/group", "Profile"),
+                create_button("material/group", "Profile", margin_top=0.2),
                 create_button("material/star-rate", "Membership"),
                 create_button("material/payments", "Payments and Invoices"),
                 create_button("material/settings", "Settings"),
-                create_button("material/logout", "Logout"),
+                create_button("material/logout", "Logout", margin_bottom=0.2),
             ),
             corner_radius=1.05,
             width=27

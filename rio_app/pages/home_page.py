@@ -15,6 +15,13 @@ class HomePage(rio.Component):
     def build(self) -> rio.Component:
         return rio.Column(
             rio.Spacer(),
+            rio.Image(
+                image=self.session.assets / 'home_bg.png',
+                fill_mode='zoom',
+                height=25,
+                corner_radius=0.8
+            ),
+            rio.Spacer(),
             rio.Row(
                 comps.InformationCard(
                     "material/group",
@@ -48,11 +55,11 @@ class HomePage(rio.Component):
                 align_x=0.5,
             ),
             rio.Row(
-                comps.PlayerCard(),
+                #comps.PlayerCard(),
                 rio.Spacer(),
             ),
             spacing=2,
-            width=60,
+            width=20,
             align_x=0.5,
             align_y=0,
         )

@@ -52,5 +52,5 @@ class InformationCard(rio.Component):
                 margin_bottom=0.2,
             ),
             color="primary",
-            width=20,
+            width=17,
         )
