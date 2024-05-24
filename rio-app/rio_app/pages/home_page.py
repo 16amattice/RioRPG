@@ -47,6 +47,10 @@ class HomePage(rio.Component):
                 spacing=0.5,
                 align_x=0.5,
             ),
+            rio.Row(
+                comps.PlayerCard(),
+                rio.Spacer(),
+            ),
             spacing=2,
             width=60,
             align_x=0.5,
