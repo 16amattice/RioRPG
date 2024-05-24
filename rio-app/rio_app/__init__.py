@@ -19,7 +19,7 @@ theme = rio.Theme.from_colors(
     primary_color=rio.Color.from_hex("#111111"),
     secondary_color=rio.Color.from_hex("0083ffff"),
     background_color=rio.Color.from_hex("#171717"),
-    #font=rio.Color.WHITE,
+    text_color=rio.Color.from_hex("#cecece"),
     light=False,
 )
 
