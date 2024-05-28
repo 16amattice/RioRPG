@@ -33,6 +33,7 @@ class Sidebar(rio.Component):
                             rio.Text(
                                 label,
                                 align_x=0,
+                                margin_left=1,
                             ),
                             align_x=0,
                         ),
@@ -41,7 +42,8 @@ class Sidebar(rio.Component):
                             if active_page_url_segment == page_url
                             else "plain"
                         ),
-                        align_x=0
+                        align_x=0,
+                        margin_left=0.5,
                     ),
                     page_url,
                     align_x=0
@@ -66,23 +68,32 @@ class Sidebar(rio.Component):
             "MAIN",
             style=rio.TextStyle(
                 fill=rio.Color.GREY,
+                font_size=0.9,
             ),
+            align_x=0,
+            margin_left=1,
+            margin_bottom=1,
         ) if self.expanded else rio.Spacer()
 
         character_text = rio.Text(
             "CHARACTER",
             style=rio.TextStyle(
                 fill=rio.Color.GREY,
+                font_size=0.9,
             ),
+            align_x=0,
+            margin_left=1,
+            margin_y=1,
         ) if self.expanded else rio.Spacer()
         
         logo_link = rio.Link(
-            rio.IconButton(
-                "rio/logo",
-                style="plain",
-                size=2.5,
+            rio.Image(
+                self.session.assets / 'icon.png',
+                height=6,
+                width=6,
             ),
         "/",
+        margin_y=2,
         ) if self.expanded else rio.Spacer(
             height=3.5
         )
@@ -97,7 +108,8 @@ class Sidebar(rio.Component):
                     create_link("Inventory", "material/backpack", "/news-page"),
                     create_link("Battle", "material/swords", "/news-page"),
                     create_link("Quests", "material/question-mark", "/news-page"),
-                    rio.Separator(width="grow"),
+                    rio.Spacer(height=1),
+                    rio.Separator(width="grow", color=rio.Color.GREY),
                     character_text,
                     create_link("Your Character", "material/person", "/news-page"),
                     create_link("Jobs", "material/cases", "/news-page"),

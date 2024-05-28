@@ -141,7 +141,8 @@ class Navbar(rio.Component):
                 rio.Popup(
                     anchor=circle_with_image,
                     content=comps.PlayerCard(),
-                    direction='bottom',
+                    position='bottom',
+                    alignment=1.05,
                     is_open=self.is_popup_open,
                 ),
             ),

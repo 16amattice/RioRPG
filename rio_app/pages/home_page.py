@@ -13,13 +13,30 @@ class HomePage(rio.Component):
     """
 
     def build(self) -> rio.Component:
+        image_path = self.session.assets / 'player_icon.png'
         return rio.Column(
             rio.Spacer(),
-            rio.Image(
-                image=self.session.assets / 'home_bg.png',
-                fill_mode='zoom',
-                height=25,
-                corner_radius=0.8
+            rio.Stack(
+                rio.Image(
+                    image=self.session.assets / 'home_bg.png',
+                    fill_mode='zoom',
+                    height=25,
+                    corner_radius=0.6
+                ),
+                rio.Rectangle(
+                    content=rio.Column(
+                        rio.Image(
+                            image_path,
+                        ),
+                        rio.Text("The start of your journey"),
+                        rio.Text("With just a press of a button, you can embark on an adventure of a lifetime."),
+                        rio.Button(),
+                    ),
+                    fill=rio.Color.from_rgb(0,0,0,0.5),
+                    margin_x=15,
+                    margin_y=3,
+                    corner_radius=0.6     
+                ),
             ),
             rio.Spacer(),
             rio.Row(
