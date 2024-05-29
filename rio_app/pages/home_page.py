@@ -30,7 +30,24 @@ class HomePage(rio.Component):
                         ),
                         rio.Text("The start of your journey"),
                         rio.Text("With just a press of a button, you can embark on an adventure of a lifetime."),
-                        rio.Button(),
+                        rio.Spacer(),
+                        rio.Button(
+                            content=rio.Row(
+                                rio.Icon("material/ads-click", fill=rio.Color.WHITE),
+                                rio.Text(
+                                    "Press here to start",
+                                    style=rio.TextStyle(
+                                        fill=rio.Color.WHITE,
+                                    ),
+                                ),
+                            ),
+                            color=rio.Color.from_hex("#0e9f6e"),
+                            shape="rounded",
+                            height=3,
+                            #width=3,
+                            margin_x=13,
+                            margin_bottom=2,
+                        ),
                     ),
                     fill=rio.Color.from_rgb(0,0,0,0.5),
                     margin_x=15,
