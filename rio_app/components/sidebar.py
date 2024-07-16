@@ -105,7 +105,7 @@ class Sidebar(rio.Component):
                     main_text,
                     create_link("Home", "material/home", "/"),
                     create_link("Town", "material/map", "/news-page"),
-                    create_link("Inventory", "material/backpack", "/news-page"),
+                    create_link("Inventory", "material/backpack", "/inventory/"),
                     create_link("Battle", "material/swords", "/news-page"),
                     create_link("Quests", "material/question-mark", "/news-page"),
                     rio.Spacer(height=1),

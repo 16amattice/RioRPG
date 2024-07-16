@@ -32,6 +32,11 @@ app = rio.App(
             page_url='',
             build=pages.HomePage,
         ),
+        rio.Page(
+            name="Inventory",
+            page_url='inventory',
+            build=pages.Inventory,
+        ),
     ],
     # You can optionally provide a root component for the app. By default,
     # a simple `rio.PageView` is used. By providing your own component, you

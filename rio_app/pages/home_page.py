@@ -49,7 +49,7 @@ class HomePage(rio.Component):
                             margin_bottom=2,
                         ),
                     ),
-                    fill=rio.Color.from_rgb(0,0,0,0.5),
+                    fill=rio.FrostedGlassFill(rio.Color.from_rgb(0,0,0,0.6), 0.3),
                     margin_x=15,
                     margin_y=3,
                     corner_radius=0.6     

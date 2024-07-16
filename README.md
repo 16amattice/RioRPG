@@ -24,3 +24,7 @@ app's build method. That's right, build functions aren't just for components!
 The app's build creates an instance of `RootPage`, which in turn displays the
 navbar and a `rio.PageView`. The currently active page is then always displayed
 inside of that page view.
+
+
+#FAST API
+uvicorn api:app --reload --port 8001
